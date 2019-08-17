@@ -21,6 +21,11 @@ module "vpc" {
       subnet_region = "us-west1"
     },
     # Add your subnet here
+    {
+      subnet_name   = "my-third-subnet"
+      subnet_ip     = "10.10.30.0/24"
+      subnet_region = "us-west1"
+    },
   ]
 
   # Define secondary ranges for each of your subnets
@@ -35,6 +40,6 @@ module "vpc" {
       },
     ]
     # Add your subnet’s secondary range below this line.
-
+    my-third-subnet = []
   }
 }
