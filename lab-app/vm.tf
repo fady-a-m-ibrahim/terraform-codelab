@@ -16,7 +16,7 @@ resource "google_compute_instance" "app" {
   }
 
   network_interface {
-    subnetwork         = data.terraform_remote_state.network.outputs.my_subnet_name
+    subnetwork         = "${data.terraform_remote_state.network.my_subnet_name}"
     subnetwork_project = "${var.project_id}"
 
     access_config {
@@ -24,7 +24,7 @@ resource "google_compute_instance" "app" {
     }
   }
 
-  metadata_startup_script = "echo '<!doctype html><html><body><h1>Hello Google!</h1></body></html>' | sudo tee /var/www/html/index.html" # Edit this line
+  metadata_startup_script = "echo '<!doctype html><html><body><h1>New message!</h1></body></html>' | sudo tee /var/www/html/index.html"  # Edit this line
 
   tags = ["allow-ping", "allow-http", "allow-ssh"]
 }
