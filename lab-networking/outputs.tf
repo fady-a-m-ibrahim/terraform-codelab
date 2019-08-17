@@ -7,3 +7,6 @@ output "first_subnet_name" {
 }
 
 # Add you new output below this line
+output "my_subnet_name" {
+  value = "${module.vpc.subnets_names[2]}"
+}
